@@ -1,14 +1,21 @@
 import * as React from 'react';
-import { Container, Box, TextField } from '@mui/material';
+import {Box, Typography } from '@mui/material';
 
 const SearchItem = (image, title, params) => {
 
     return (
-        <Container maxWidth="sm">
-            <Box sx={{ bgcolor: '#cfe8fc', height: '100vh' }}>
-                
-            </Box>
-        </Container>
+        <Box component="li" display="flex" alignItems="center" {...params}>
+                <Box
+                component="img"
+                sx={{
+                    height: 100,
+                    width: 100
+                }}
+                alt={title}
+                src={image}
+                />
+                <Typography>{title}</Typography>
+        </Box>
     );
 }
 
