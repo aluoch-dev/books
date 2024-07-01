@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Autocomplete, TextField } from '@mui/material';
+import {Container, Box, Autocomplete, TextField, Typography } from '@mui/material';
 
 const booksData = [
     {
@@ -613,6 +613,20 @@ const Searchbar = () => {
         getOptionLabel={(option) => option.title}
         sx={{ width: 300 }}
         renderInput={(params) => <TextField {...params} label="booksData" />}
+        renderOption={(params, option) => (
+            <Box component="li" display="flex" alignItems="center" {...params}>
+                <Box
+                component="img"
+                sx={{
+                    height: 100,
+                    width: 100
+                }}
+                alt={option.title}
+                src={option.coverPhotoURL}
+                />
+                <Typography>{option.title}</Typography>
+            </Box>
+        )}
       />
     );
 }
