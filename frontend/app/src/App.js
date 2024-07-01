@@ -18,7 +18,9 @@ const GET_BOOKS = gql`
 const App = () => {
   const {loading, error, data} = useQuery(GET_BOOKS);
 
-  console.log(data)
+  console.log(data.books);
+  const details = data.books;
+
 
   if(loading) return <Typography>Loading...</Typography>
 
@@ -34,7 +36,10 @@ const App = () => {
     justifyContent: 'center', 
     alignItems: 'center'}}>
       <Searchbar />
-      <BookGrid />
+      <BookGrid 
+      books={details} 
+      image={details.image} 
+      title={details.title} />
    </Box>
   );
 }
