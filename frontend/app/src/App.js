@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box } from '@mui/material';
 
-import Searchbar from './components/search';
+import Searchbar from './components/Search';
 import BookGrid from './components/BookItem';
 
 function App() {
