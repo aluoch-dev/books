@@ -618,7 +618,7 @@ const BookItem = ({image, title}) => {
     );
 }
 
-const BookGrid = () => {
+const BookGrid = ({books}) => {
     return (
         <Box 
         component="ul" 

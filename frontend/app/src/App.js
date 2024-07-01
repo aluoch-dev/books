@@ -18,6 +18,8 @@ const GET_BOOKS = gql`
 const App = () => {
   const {loading, error, data} = useQuery(GET_BOOKS);
 
+  console.log(data)
+
   if(loading) return <Typography>Loading...</Typography>
 
   if(error) return <Typography>Error!</Typography>
