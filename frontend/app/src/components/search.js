@@ -612,7 +612,7 @@ const Searchbar = () => {
         options={booksData}
         getOptionLabel={(option) => option.title}
         sx={{ width: 300 }}
-        renderInput={(params) => <TextField {...params} label="booksData" />}
+        renderInput={(params) => <TextField {...params} label="Search book..." />}
         renderOption={(params, option) => (            
             <Box component="li" display="flex" alignItems="center" {...params}>
                 <Box
