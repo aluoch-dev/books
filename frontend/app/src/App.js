@@ -2,7 +2,9 @@ import React from 'react';
 import { useQuery, gql } from '@apollo/client';
 import { Box, Typography } from '@mui/material';
 import Searchbar from './components/Search';
-import BookGrid from './components/BookItem';
+import BooksGrid from './components/BooksGrid';
+
+
 
 const GET_BOOKS = gql`
   query Books {
@@ -18,8 +20,11 @@ const GET_BOOKS = gql`
 const App = () => {
   const {loading, error, data} = useQuery(GET_BOOKS);
 
-  console.log(data.books);
-  const details = data.books;
+  console.log(data);
+  console.log(typeof(data));
+
+  //console.log(data.books);
+  //const details = data.books;
 
 
   if(loading) return <Typography>Loading...</Typography>
@@ -36,10 +41,7 @@ const App = () => {
     justifyContent: 'center', 
     alignItems: 'center'}}>
       <Searchbar />
-      <BookGrid 
-      books={details} 
-      image={details.image} 
-      title={details.title} />
+      <BooksGrid books={data} />
    </Box>
   );
 }

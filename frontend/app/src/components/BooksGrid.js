@@ -1,7 +1,7 @@
 import React from "react";
 import { Box } from "@mui/material";
 
-const BookItem = ({image, title}) => {
+const BookItem = ({cover, title}) => {
     return (
         <Box
         component="img"
@@ -10,12 +10,12 @@ const BookItem = ({image, title}) => {
             width: 200
         }}
         alt={title}
-        src={image}
+        src={cover}
         />
     );
 }
 
-const BookGrid = ({books, title, image}) => {
+const BooksGrid = ({books}) => {
     return (
         <Box 
         component="ul" 
@@ -29,12 +29,16 @@ const BookGrid = ({books, title, image}) => {
             gap:2
         }}>
             <Box>
-            {books?.map((index) => (
-                <BookItem key={index} title={title} image={image} />
+            {books?.map((index, book) => (
+                <BookItem 
+                key={index} 
+                title={book.title} 
+                cover={`${process.env.APP_PUBLIC_URL}/${book.coverPhotoURL}`}
+                />
            ))}
             </Box>
         </Box>
     )
 }
 
-export default BookGrid;
+export default BooksGrid;
