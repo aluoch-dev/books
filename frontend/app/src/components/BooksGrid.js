@@ -1,8 +1,12 @@
 import React from "react";
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 const BookItem = ({cover, title}) => {
     return (
+        <Box
+        display="flex"
+        flexDirection="column"
+        >
         <Box
         component="img"
         sx={{
@@ -12,6 +16,8 @@ const BookItem = ({cover, title}) => {
         alt={title}
         src={cover}
         />
+        <Typography>{title}</Typography>
+        </Box>
     );
 }
 
@@ -28,7 +34,6 @@ const BooksGrid = ({books}) => {
             p:4,
             gap:2
         }}>
-            <Box>
             {books?.map((index, book) => (
                 <BookItem 
                 key={index} 
@@ -36,7 +41,6 @@ const BooksGrid = ({books}) => {
                 cover={`${process.env.APP_PUBLIC_URL}/${book.coverPhotoURL}`}
                 />
            ))}
-            </Box>
         </Box>
     )
 }

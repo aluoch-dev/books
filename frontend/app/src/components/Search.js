@@ -11,7 +11,12 @@ const Searchbar = ( {books}) => {
         sx={{ width: 300 }}
         renderInput={(params) => <TextField {...params} label="Search book..." />}
         renderOption={(params, option) => (            
-            <Box component="li" display="flex" alignItems="center" {...params}>
+            <Box 
+            component="li" 
+            display="flex" 
+            alignItems="center" 
+            {...params}
+            >
                 <Box
                 component="img"
                 sx={{
