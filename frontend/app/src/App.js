@@ -40,8 +40,7 @@ const App = () => {
     flexDirection: 'column',
     justifyContent: 'center', 
     alignItems: 'center'}}>
-      
-      <Searchbar />
+      <Searchbar books={data.books}/>
       {data && data.books ? (
         <BooksGrid books={data.books} />
       ) : (
