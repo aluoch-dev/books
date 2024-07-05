@@ -13,9 +13,11 @@ export const PrimaryButton = ({ text, onClick }) => {
             mt:2,
             fontFamily: 'Mulish, sans-serif',
             borderRadius: '80px',
+            borderColor: (theme) => theme.palette.turquiose.primary,
             backgroundColor: (theme) => theme.palette.turquiose.primary,
             '&:hover': {
               backgroundColor: (theme) => theme.palette.turquiose.tertiary,
+              borderColor: (theme) => theme.palette.turquiose.tertiary
             },
             textTransform: 'none'
           }}>
@@ -40,6 +42,7 @@ export const SecondaryButton = ({text, onClick}) => {
             '&:hover': {
               backgroundColor: (theme) => theme.palette.turquiose.primary,
               color: 'white',
+              borderColor: (theme) => theme.palette.turquiose.primary
             },
             textTransform: 'none'
           }}>
