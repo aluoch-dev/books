@@ -50,6 +50,7 @@ const App = () => {
   const handleAddToReadingList = ({title, author, coverPhotoURL}) => {
     try {
       const book = {title, author, coverPhotoURL};
+      console.log(book);
       const updatedReadingList = [...readingList, book];
       setReadingList(updatedReadingList);
       localStorage.setItem('readingList', JSON.stringify(updatedReadingList));
@@ -91,7 +92,7 @@ const App = () => {
           readingList.length >= 1 ? (
             <>
             <SecondaryButton text="View all Books" onClick={viewAllBooks} />
-            <BooksGrid title='My Reading List' books={readingList} onClick={removeFromReadingList}/>
+            <BooksGrid title='Reading List' books={readingList} isViewChanged={true} onClick={removeFromReadingList}/>
             </>
           ) : (
             <>

@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Typography } from "@mui/material";
 import { PrimaryButton } from "./Buttons";
 
-const BookItem = ({cover, title, author, onClick}) => {
+const BookItem = ({cover, title, author, onClick, isViewChanged}) => {
     return (
         <Box
             display="flex"
@@ -33,13 +33,13 @@ const BookItem = ({cover, title, author, onClick}) => {
                 />
                 <Typography sx={{ fontFamily: 'Mulish, sans-serif', mb: 1, lineHeight: 1., minHeight: 40, maxHeight: 80, overflow: 'hidden', color: (theme) => theme.palette.black.primary }} >{title}</Typography>
                 <Typography sx={{ fontFamily: 'Mulish, sans-serif', mb: 1, color: (theme) => theme.palette.black.light }}>{author}</Typography>
-                <PrimaryButton text="Add to Reading List" onClick={onClick} />
+                <PrimaryButton text={isViewChanged ?'Remove Book' :'Add to Reading List'} onClick={onClick} />
             </Box>
         </Box>
     );
 }
 
-const BooksGrid = ({books, title, onClick}) => {
+const BooksGrid = ({books, title, onClick, isViewChanged}) => {
     return (
         <Box sx={{ display:'flex', flexDirection:'column', alignItems:'center', mt: 4 }}>
         <Typography component='h2' sx={{ fontFamily: 'Mulish, sans-serif', mb: 2 }}>{title}</Typography>
@@ -55,7 +55,8 @@ const BooksGrid = ({books, title, onClick}) => {
                     title={book.title}
                     author={book.author}
                     cover={book.coverPhotoURL}
-                    onClick={onClick}
+                    onClick={() => onClick(book)}
+                    isViewChanged={isViewChanged}
                 />
             ))}
         </Box>
