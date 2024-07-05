@@ -5,35 +5,35 @@ import { PrimaryButton } from "./Buttons";
 const BookItem = ({cover, title, author, onClick}) => {
     return (
         <Box
-        display="flex"
-        flexDirection="column"
-        sx={{
-            alignItems: 'start',
-            boxShadow: 3,
-            borderRadius: 1,
-            p: 2,
-            backgroundColor: 'white'
-          }}
-        >
-            <Box
+            display="flex"
+            flexDirection="column"
             sx={{
-                p: 4
+                alignItems: 'start',
+                boxShadow: 3,
+                borderRadius: 1,
+                p: 2,
+                flexBasis: '30%',
+                minWidth: 200, 
+                maxWidth: 320,
+                mb: 4
             }}
-            >
+        >
+            <Box sx={{ p: 2 }} >
                 <Box
-                component="img"
-                sx={{
-                    height: 200,
-                    width: 200,
-                    borderRadius: 1,
-                    mb:2
-                }}
-                alt={title}
-                src={cover}
+                    component="img"
+                    sx={{
+                        height: 200,
+                        width: '100%',
+                        objectFit: 'cover',
+                        borderRadius: 1,
+                        mb: 2,
+                    }}
+                    alt={title}
+                    src={cover}
                 />
-                <Typography sx={{ mb:2}}>{title}</Typography>
-                <Typography sx={{mb: 2}}>{author}</Typography>
-                <PrimaryButton text="Add to Reading List" onClick={onClick}/>
+                <Typography sx={{ mb: 1, lineHeight: 1., minHeight: 40, maxHeight: 80, overflow: 'hidden' }}>{title}</Typography>
+                <Typography sx={{ mb: 1 }}>{author}</Typography>
+                <PrimaryButton text="Add to Reading List" onClick={onClick} />
             </Box>
         </Box>
     );
@@ -41,37 +41,25 @@ const BookItem = ({cover, title, author, onClick}) => {
 
 const BooksGrid = ({books, title, onClick}) => {
     return (
-        <Box>
-            <Typography
-            component='h2'
-            sx={{
-                mt: 4,
-                display: 'flex'
-            }}
-            
-            >{title}</Typography>
-            <Box 
-            component="ul" 
-            sx={{
-                display:'flex',
-                flexWrap:'wrap',
-                justifyContent:'space-between',
-                listStyle:'none',
-                alignItems:"center",
-                p:4,
-                gap:2
-            }}>
-                {books?.map((book, index) => (
-                    <BookItem 
-                    key={index} 
-                    title={book.title} 
+        <Box sx={{ mt: 4 }}>
+        <Typography component='h2' sx={{ mb: 2 }}>{title}</Typography>
+        <Box
+            display="flex"
+            flexWrap="wrap"
+            justifyContent="space-between"
+            gap={2}
+        >
+            {books?.map((book, index) => (
+                <BookItem
+                    key={index}
+                    title={book.title}
                     author={book.author}
                     cover={book.coverPhotoURL}
                     onClick={onClick}
-                    />
+                />
             ))}
-            </Box>
         </Box>
+    </Box>
     )
 }
 
