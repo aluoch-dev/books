@@ -36,7 +36,9 @@ const App = () => {
     alignItems: 'center'}}>
       <Searchbar books={data.books}/>
       {data && data.books ? (
-        <BooksGrid books={data.books} />
+        <BooksGrid 
+        title="All Books"
+        books={data.books} />
       ) : (
         <Typography>No books available currently!</Typography>
       )}

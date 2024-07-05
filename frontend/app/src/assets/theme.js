@@ -1,14 +1,11 @@
 import { createTheme } from "@mui/material";
-import MulishRegular from './fonts/Mulish-Regular.ttf'
+import Mulish from './fonts/Mulish-Regular.ttf';
 
 const mulish = {
     fontFamily: 'Mulish',
-    fontStyle: 'normal',
-    fontDisplay: 'swap',
-    fontWeight: 400,
     src: `
       local('Mulish'),
-      url(${MulishRegular}) format('truetype')
+      url(${Mulish}) format('truetype')
     `,
   };
 

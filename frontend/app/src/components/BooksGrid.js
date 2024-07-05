@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
-import PrimaryButton from "./Buttons";
+import { PrimaryButton, SecondaryButton } from "./Buttons";
 
 const BookItem = ({cover, title, author}) => {
     return (
@@ -34,16 +34,17 @@ const BookItem = ({cover, title, author}) => {
                 <Typography sx={{ mb:2}}>{title}</Typography>
                 <Typography sx={{mb: 2}}>{author}</Typography>
                 <PrimaryButton text="Add to Reading List" />
+                <SecondaryButton text="Load More..." />
             </Box>
         </Box>
     );
 }
 
-const BooksGrid = ({books}) => {
+const BooksGrid = ({books, title}) => {
     return (
         <Box>
+            <Typography>{title}</Typography>
             <Box 
-
             component="ul" 
             sx={{
                 display:'flex',
