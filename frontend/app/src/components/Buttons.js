@@ -16,6 +16,7 @@ export const PrimaryButton = ({ text, onClick }) => {
             '&:hover': {
               backgroundColor: (theme) => theme.palette.turquiose.tertiary,
             },
+            textTransform: 'none'
           }}>
         {text}
       </Button>
@@ -38,6 +39,7 @@ export const SecondaryButton = ({text, onClick}) => {
               backgroundColor: (theme) => theme.palette.turquiose.primary,
               color: 'white',
             },
+            textTransform: 'none'
           }}>
         {text}
       </Button>

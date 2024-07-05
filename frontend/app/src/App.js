@@ -93,7 +93,7 @@ const App = () => {
         )
       )
       ) : (
-        <Typography>No books available currently!</Typography>
+        <Typography sx={{ m: 4}}>No books available currently!</Typography>
       )}
     </Box>
     </>
