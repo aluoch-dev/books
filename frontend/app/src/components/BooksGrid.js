@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
-import { PrimaryButton, SecondaryButton } from "./Buttons";
+import { PrimaryButton } from "./Buttons";
 
 const BookItem = ({cover, title, author}) => {
     return (

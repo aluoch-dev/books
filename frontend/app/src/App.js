@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Box, Typography } from '@mui/material';
 import Searchbar from './components/Search';
 import BooksGrid from './components/BooksGrid';
+import Navbar from './components/Navbar';
 
 const GET_BOOKS = gql`
   query Books {
@@ -32,6 +33,8 @@ const App = () => {
 
 
   return (
+    <>
+    <Navbar />
    <Box 
    component="section" 
    sx={{ 
@@ -51,6 +54,7 @@ const App = () => {
         <Typography>No books available currently!</Typography>
       )}
     </Box>
+    </>
   );
 }
 
