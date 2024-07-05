@@ -1,46 +1,68 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
+import PrimaryButton from "./Buttons";
 
-const BookItem = ({cover, title}) => {
+const BookItem = ({cover, title, author}) => {
     return (
         <Box
         display="flex"
         flexDirection="column"
-        >
-        <Box
-        component="img"
         sx={{
-            height: 200,
-            width: 200
-        }}
-        alt={title}
-        src={cover}
-        />
-        <Typography>{title}</Typography>
+            alignItems: 'start',
+            boxShadow: 3,
+            borderRadius: 1,
+            p: 2,
+            backgroundColor: 'white'
+          }}
+        >
+            <Box
+            sx={{
+                p: 4
+            }}
+            >
+                <Box
+                component="img"
+                sx={{
+                    height: 200,
+                    width: 200,
+                    borderRadius: 1,
+                    mb:2
+                }}
+                alt={title}
+                src={cover}
+                />
+                <Typography sx={{ mb:2}}>{title}</Typography>
+                <Typography sx={{mb: 2}}>{author}</Typography>
+                <PrimaryButton text="Add to Reading List" />
+            </Box>
         </Box>
     );
 }
 
 const BooksGrid = ({books}) => {
     return (
-        <Box 
-        component="ul" 
-        sx={{
-            display:'flex',
-            flexWrap:'wrap',
-            justifyContent:'space-between',
-            listStyle:'none',
-            alignItems:"center",
-            p:4,
-            gap:2
-        }}>
-            {books?.map((index, book) => (
-                <BookItem 
-                key={index} 
-                title={book.title} 
-                cover={`${process.env.APP_PUBLIC_URL}/${book.coverPhotoURL}`}
-                />
-           ))}
+        <Box>
+            <Box 
+
+            component="ul" 
+            sx={{
+                display:'flex',
+                flexWrap:'wrap',
+                justifyContent:'space-between',
+                listStyle:'none',
+                alignItems:"center",
+                p:4,
+                gap:2
+            }}>
+                {books?.map((index, book) => (
+                    <BookItem 
+                    key={index} 
+                    title={book.title} 
+                    author={book.author}
+                    cover={book.coverPhotoURL}
+                    />
+            ))}
+            </Box>
         </Box>
     )
 }

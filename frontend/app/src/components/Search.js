@@ -5,7 +5,7 @@ const Searchbar = ( {books}) => {
     return(
         <Autocomplete
         disablePortal
-        id="combo-box-demo"
+        id="search-box"
         options={books}
         getOptionLabel={(option) => option.title}
         sx={{ width: 300 }}
@@ -26,7 +26,8 @@ const Searchbar = ( {books}) => {
                 alt={option.title}
                 src={option.coverPhotoURL}
                 />
-                <Typography>{option.title}</Typography>
+                <Typography sx={{ p:2
+                }}>{option.title}</Typography>
             </Box>
         )}
       />

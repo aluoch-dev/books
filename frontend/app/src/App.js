@@ -24,12 +24,6 @@ const App = () => {
     return <Typography>Error :(error)</Typography>;
   }
 
-  if (data && data.books) {
-    console.log("My data", data.books);
-  } else {
-    console.log("Data not available yet");
-  }
-
 
   return (
    <Box 
