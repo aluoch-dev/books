@@ -34,7 +34,6 @@ const BookItem = ({cover, title, author}) => {
                 <Typography sx={{ mb:2}}>{title}</Typography>
                 <Typography sx={{mb: 2}}>{author}</Typography>
                 <PrimaryButton text="Add to Reading List" />
-                <SecondaryButton text="Load More..." />
             </Box>
         </Box>
     );
@@ -43,7 +42,14 @@ const BookItem = ({cover, title, author}) => {
 const BooksGrid = ({books, title}) => {
     return (
         <Box>
-            <Typography>{title}</Typography>
+            <Typography
+            component='h2'
+            sx={{
+                mt: 4,
+                display: 'flex'
+            }}
+            
+            >{title}</Typography>
             <Box 
             component="ul" 
             sx={{
