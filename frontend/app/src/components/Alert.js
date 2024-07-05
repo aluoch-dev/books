@@ -15,7 +15,7 @@ export const SuccessAlert = ({text}) => {
 
 export const WarningAlert = ({text}) => {
     return (
-      <Alert icon={<ReportProblemIcon fontSize="inherit" />} severity="success">
+      <Alert sx={{ fontFamily: 'Mulish, sans-serif'}}icon={<ReportProblemIcon fontSize="inherit" />} severity="success">
         {text}
       </Alert>
     );

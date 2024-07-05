@@ -13,6 +13,7 @@ const CircularProgressWithLabel = (props) => {
       variant="determinate" {...props}
       size={120}
       sx={{
+        fontFamily: 'Mulish, sans-serif',
         color: (theme) => theme.palette.turquiose.primary
       }}
       />

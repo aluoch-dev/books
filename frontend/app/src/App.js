@@ -95,7 +95,7 @@ const App = () => {
             </>
           ) : (
             <>
-            <Typography sx={{ m: 4}}>No books in your reading List. Add some right away.</Typography>
+            <Typography sx={{ fontFamily: 'Mulish, sans-serif', m: 4}}>No books in your reading List. Add some right away.</Typography>
             <SecondaryButton text="View all Books" onClick={viewAllBooks} />
             </>
           )
@@ -104,7 +104,7 @@ const App = () => {
         )
       )
       ) : (
-        <Typography sx={{ m: 4}}>No books available currently!</Typography>
+        <Typography sx={{ fontFamily: 'Mulish, sans-serif', m: 4}}>No books available currently!</Typography>
       )}
     </Box>
     </>

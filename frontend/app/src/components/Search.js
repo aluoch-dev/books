@@ -11,8 +11,8 @@ const Searchbar = ({books, onSelect}) => {
         onChange={(event, value) => { onSelect(value)}}
         clearOnBlur
         getOptionLabel={(option) => option.title}
-        sx={{ width: 300 }}
-        renderInput={(params) => <TextField {...params} label="Search book..." />}
+        sx={{ fontFamily: 'Mulish, sans-serif', width: 300 }}
+        renderInput={(params) => <TextField {...params} label="Search book..." sx={{ fontFamily: 'Mulish, sans-serif'}}/>}
         renderOption={(params, option) => (            
             <Box 
             component="li" 
@@ -29,7 +29,7 @@ const Searchbar = ({books, onSelect}) => {
                 alt={option.title}
                 src={option.coverPhotoURL}
                 />
-                <Typography sx={{ p:2
+                <Typography sx={{ fontFamily: 'Mulish, sans-serif', p:2
                 }}>{option.title}</Typography>
             </Box>
         )}
