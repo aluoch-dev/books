@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Typography } from "@mui/material";
 import { PrimaryButton } from "./Buttons";
 
-const BookItem = ({cover, title, author}) => {
+const BookItem = ({cover, title, author, onClick}) => {
     return (
         <Box
         display="flex"
@@ -33,13 +33,13 @@ const BookItem = ({cover, title, author}) => {
                 />
                 <Typography sx={{ mb:2}}>{title}</Typography>
                 <Typography sx={{mb: 2}}>{author}</Typography>
-                <PrimaryButton text="Add to Reading List" />
+                <PrimaryButton text="Add to Reading List" onClick={onClick}/>
             </Box>
         </Box>
     );
 }
 
-const BooksGrid = ({books, title}) => {
+const BooksGrid = ({books, title, onClick}) => {
     return (
         <Box>
             <Typography
@@ -67,6 +67,7 @@ const BooksGrid = ({books, title}) => {
                     title={book.title} 
                     author={book.author}
                     cover={book.coverPhotoURL}
+                    onClick={onClick}
                     />
             ))}
             </Box>

@@ -1,10 +1,11 @@
 import React from 'react';
 import { useQuery, gql } from '@apollo/client';
 import { useState } from 'react';
-import { Box, Typography } from '@mui/material';
+import { Box, CircularProgress, Typography } from '@mui/material';
 import Searchbar from './components/Search';
 import BooksGrid from './components/BooksGrid';
 import Navbar from './components/Navbar';
+import CircularWithValueLabel from './components/Loading';
 
 const GET_BOOKS = gql`
   query Books {
@@ -20,9 +21,13 @@ const GET_BOOKS = gql`
 const App = () => {
   const {loading, error, data} = useQuery(GET_BOOKS);
   const [selectedBook, setSelectedBook] = useState(null);
+  const [readingList, setReadingList] = useState(() => {
+    const addedBooks = localStorage.getItem('readingList');
+    return addedBooks ? JSON.parse(addedBooks) : [];
+  })
 
   if (loading) {
-    return <Typography>Loading...</Typography>;
+    return <CircularWithValueLabel />;
   } else if (error) {
     return <Typography>Error :(error)</Typography>;
   }
@@ -31,10 +36,20 @@ const App = () => {
     setSelectedBook(book);
   };
 
+  const viewReadingList = () => {
+    //display reading list
+    console.log(readingList);
+  }
+
+  const handleAddToReadingList = (book) => {
+    //add book to Reading list
+
+  }
+
 
   return (
     <>
-    <Navbar />
+    <Navbar onReadingListClick={viewReadingList} />
    <Box 
    component="section" 
    sx={{ 
@@ -48,7 +63,7 @@ const App = () => {
         selectedBook ? (
           <BooksGrid title={`Selected Book: ${selectedBook.title}`} books={[selectedBook]} />
         ) : (
-          <BooksGrid title="All Books" books={data.books} />
+          <BooksGrid title="All Books" books={data.books} onClick={handleAddToReadingList} />
         )
       ) : (
         <Typography>No books available currently!</Typography>

@@ -13,9 +13,8 @@ const NavBar = ({ onReadingListClick }) => {
             alt="Logo" 
             style={{ height: '40px', marginRight: '10px' }}
           />
-
         </Box>
-        <SecondaryButton text="Reading List" onClick={onReadingListClick} />
+        <SecondaryButton text="View Reading List" onClick={onReadingListClick} />
       </Toolbar>
     </AppBar>
   );
