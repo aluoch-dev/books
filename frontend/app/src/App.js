@@ -1,7 +1,7 @@
 import React from 'react';
 import { useQuery, gql } from '@apollo/client';
 import { useState } from 'react';
-import { Box, CircularProgress, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import Searchbar from './components/Search';
 import BooksGrid from './components/BooksGrid';
 import Navbar from './components/Navbar';
@@ -37,13 +37,18 @@ const App = () => {
   };
 
   const viewReadingList = () => {
-    //display reading list
-    console.log(readingList);
+    setSelectedBook(null);
   }
 
   const handleAddToReadingList = (book) => {
-    //add book to Reading list
+    const updatedReadingList = [...readingList, book];
+    setReadingList(updatedReadingList);
+    localStorage.setItem('readingList', JSON.stringify(updatedReadingList));
 
+  }
+
+  const removeFromReadingList = () => {
+    //remove book from Reading List
   }
 
 
@@ -63,7 +68,11 @@ const App = () => {
         selectedBook ? (
           <BooksGrid title={`Selected Book: ${selectedBook.title}`} books={[selectedBook]} />
         ) : (
+          readingList.length > 0 ? (
+          <BooksGrid title='Mty Reading List' books={readingList} onClick={removeFromReadingList}/>
+          ) : (
           <BooksGrid title="All Books" books={data.books} onClick={handleAddToReadingList} />
+          )
         )
       ) : (
         <Typography>No books available currently!</Typography>
