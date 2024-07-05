@@ -55,7 +55,7 @@ const BooksGrid = ({books, title, onClick, isViewChanged}) => {
                     title={book.title}
                     author={book.author}
                     cover={book.coverPhotoURL}
-                    onClick={onClick}
+                    onClick={() => onClick(book)}
                     isViewChanged={isViewChanged}
                 />
             ))}
