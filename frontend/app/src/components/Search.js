@@ -1,12 +1,15 @@
 import * as React from 'react';
 import { Box, Autocomplete, TextField, Typography } from '@mui/material';
 
-const Searchbar = ( {books}) => {
+const Searchbar = ({books, onSelect}) => {
+
     return(
         <Autocomplete
         disablePortal
         id="search-box"
         options={books}
+        onChange={(event, value) => { onSelect(value)}}
+        clearOnBlur
         getOptionLabel={(option) => option.title}
         sx={{ width: 300 }}
         renderInput={(params) => <TextField {...params} label="Search book..." />}
