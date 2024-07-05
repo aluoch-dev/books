@@ -47,9 +47,9 @@ const App = () => {
     setIsReadingList(true);
   }
 
-  const handleAddToReadingList = ({title, author, cover}) => {
+  const handleAddToReadingList = ({title, author, coverPhotoURL}) => {
     try {
-      const book = {title, author, cover};
+      const book = {title, author, coverPhotoURL};
       const updatedReadingList = [...readingList, book];
       setReadingList(updatedReadingList);
       localStorage.setItem('readingList', JSON.stringify(updatedReadingList));
