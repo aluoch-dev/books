@@ -10,6 +10,7 @@ export const PrimaryButton = ({ text, onClick }) => {
         variant="contained" 
         color="primary" 
         sx={{
+            mt:2,
             fontFamily: 'Mulish, sans-serif',
             borderRadius: '80px',
             backgroundColor: (theme) => theme.palette.turquiose.primary,
@@ -30,6 +31,7 @@ export const SecondaryButton = ({text, onClick}) => {
         variant="outlined" 
         color="primary" 
         sx={{
+            mt: 2,
             fontFamily: 'Mulish, sans-serif',
             borderRadius: '80px',
             backgroundColor: 'white',

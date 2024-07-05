@@ -1,12 +1,13 @@
 import React from 'react';
 import { useQuery, gql } from '@apollo/client';
 import { useState } from 'react';
-import { Box, Typography } from '@mui/material';
+import { Alert, Box, Typography } from '@mui/material';
 import Searchbar from './components/Search';
 import BooksGrid from './components/BooksGrid';
 import Navbar from './components/Navbar';
 import CircularWithValueLabel from './components/Loading';
 import { SecondaryButton } from './components/Buttons';
+import { SuccessAlert, WarningAlert } from './components/Alert';
 
 const GET_BOOKS = gql`
   query Books {
@@ -46,15 +47,22 @@ const App = () => {
     setIsReadingList(true);
   }
 
-  const handleAddToReadingList = (book) => {
-    const updatedReadingList = [...readingList, book];
-    setReadingList(updatedReadingList);
-    localStorage.setItem('readingList', JSON.stringify(updatedReadingList));
+  const handleAddToReadingList = ({title, author, cover}) => {
+    try {
+      const book = {title, author, cover};
+      const updatedReadingList = [...readingList, book];
+      setReadingList(updatedReadingList);
+      localStorage.setItem('readingList', JSON.stringify(updatedReadingList));
+      <SuccessAlert text=" Book added successfuly" />
+      //Todo Change button state to disabled to prevent durther add operations.
+    } catch {
+      <WarningAlert text="Operation Failed. Try Again!"/>
+    }
 
   }
 
   const removeFromReadingList = () => {
-    //remove book from Reading List
+    //Todo: Remove from Reading List
   }
 
   const viewAllBooks = () => {
@@ -66,7 +74,7 @@ const App = () => {
   return (
     <>
     <Navbar onViewList={viewReadingList} />
-   <Box 
+    <Box 
    component="section" 
    sx={{ 
     p: 4,
@@ -81,7 +89,10 @@ const App = () => {
         ) : (
         isReadingList ? (
           readingList.length >= 1 ? (
+            <>
+            <SecondaryButton text="View all Books" onClick={viewAllBooks} />
             <BooksGrid title='My Reading List' books={readingList} onClick={removeFromReadingList}/>
+            </>
           ) : (
             <>
             <Typography sx={{ m: 4}}>No books in your reading List. Add some right away.</Typography>

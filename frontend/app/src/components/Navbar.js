@@ -7,7 +7,7 @@ const NavBar = ({ onViewList }) => {
   return (
     <AppBar position="static" sx={{ backgroundColor: 'transparent', boxShadow: 'none'}}>
       <Toolbar>
-        <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1 }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1}}>
           <img 
             src={logo} 
             alt="Logo" 
