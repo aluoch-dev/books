@@ -54,7 +54,7 @@ const BooksGrid = ({books}) => {
                 p:4,
                 gap:2
             }}>
-                {books?.map((index, book) => (
+                {books?.map((book, index) => (
                     <BookItem 
                     key={index} 
                     title={book.title} 
