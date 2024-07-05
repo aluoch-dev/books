@@ -10,12 +10,14 @@ export const PrimaryButton = ({ text, onClick }) => {
         variant="contained" 
         color="primary" 
         sx={{
+            mt:2,
             fontFamily: 'Mulish, sans-serif',
             borderRadius: '80px',
             backgroundColor: (theme) => theme.palette.turquiose.primary,
             '&:hover': {
               backgroundColor: (theme) => theme.palette.turquiose.tertiary,
             },
+            textTransform: 'none'
           }}>
         {text}
       </Button>
@@ -29,6 +31,7 @@ export const SecondaryButton = ({text, onClick}) => {
         variant="outlined" 
         color="primary" 
         sx={{
+            mt: 2,
             fontFamily: 'Mulish, sans-serif',
             borderRadius: '80px',
             backgroundColor: 'white',
@@ -38,6 +41,7 @@ export const SecondaryButton = ({text, onClick}) => {
               backgroundColor: (theme) => theme.palette.turquiose.primary,
               color: 'white',
             },
+            textTransform: 'none'
           }}>
         {text}
       </Button>
