@@ -31,8 +31,8 @@ const BookItem = ({cover, title, author, onClick}) => {
                     alt={title}
                     src={cover}
                 />
-                <Typography sx={{ mb: 1, lineHeight: 1., minHeight: 40, maxHeight: 80, overflow: 'hidden' }}>{title}</Typography>
-                <Typography sx={{ mb: 1 }}>{author}</Typography>
+                <Typography sx={{ mb: 1, lineHeight: 1., minHeight: 40, maxHeight: 80, overflow: 'hidden', color: (theme) => theme.palette.black.primary }}>{title}</Typography>
+                <Typography sx={{ mb: 1, color: (theme) => theme.palette.black.light }}>{author}</Typography>
                 <PrimaryButton text="Add to Reading List" onClick={onClick} />
             </Box>
         </Box>
