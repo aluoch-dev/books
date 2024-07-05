@@ -41,8 +41,8 @@ const BookItem = ({cover, title, author, onClick}) => {
 
 const BooksGrid = ({books, title, onClick}) => {
     return (
-        <Box sx={{ mt: 4 }}>
-        <Typography component='h2' sx={{ mb: 2 }}>{title}</Typography>
+        <Box sx={{ display:'flex', flexDirection:'column', alignItems:'center', mt: 4 }}>
+        <Typography component='h2' sx={{ fontFamily: 'Mulish, sans-serif', mb: 2 }}>{title}</Typography>
         <Box
             display="flex"
             flexWrap="wrap"
