@@ -3,11 +3,11 @@ import { AppBar, Toolbar, Box } from '@mui/material';
 import logo from './../assets/logo.svg';
 import { SecondaryButton } from './Buttons';
 
-const NavBar = ({ onViewList }) => {
+const NavBar = ({ onViewList, onClick }) => {
   return (
     <AppBar position="static" sx={{ backgroundColor: 'transparent', boxShadow: 'none'}}>
       <Toolbar>
-        <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1}}>
+        <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1}} onClick={onClick}>
           <img 
             src={logo} 
             alt="Logo" 

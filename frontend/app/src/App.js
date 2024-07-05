@@ -73,7 +73,7 @@ const App = () => {
 
   return (
     <>
-    <Navbar onViewList={viewReadingList} />
+    <Navbar onViewList={viewReadingList}onClick={viewAllBooks} />
     <Box 
    component="section" 
    sx={{ 
