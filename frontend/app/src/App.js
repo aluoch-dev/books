@@ -91,7 +91,7 @@ const App = () => {
           readingList.length >= 1 ? (
             <>
             <SecondaryButton text="View all Books" onClick={viewAllBooks} />
-            <BooksGrid title='My Reading List' books={readingList} onClick={removeFromReadingList}/>
+            <BooksGrid title='Reading List' books={readingList} isViewChanged={true} onClick={removeFromReadingList}/>
             </>
           ) : (
             <>
