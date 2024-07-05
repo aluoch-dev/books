@@ -6,6 +6,7 @@ import Searchbar from './components/Search';
 import BooksGrid from './components/BooksGrid';
 import Navbar from './components/Navbar';
 import CircularWithValueLabel from './components/Loading';
+import { SecondaryButton } from './components/Buttons';
 
 const GET_BOOKS = gql`
   query Books {
@@ -25,6 +26,9 @@ const App = () => {
     const addedBooks = localStorage.getItem('readingList');
     return addedBooks ? JSON.parse(addedBooks) : [];
   })
+  const [isReadingList, setIsReadingList] = useState(false);
+
+
 
   if (loading) {
     return <CircularWithValueLabel />;
@@ -37,7 +41,9 @@ const App = () => {
   };
 
   const viewReadingList = () => {
+    console.log("Viewing Reading List");
     setSelectedBook(null);
+    setIsReadingList(true);
   }
 
   const handleAddToReadingList = (book) => {
@@ -51,10 +57,15 @@ const App = () => {
     //remove book from Reading List
   }
 
+  const viewAllBooks = () => {
+    setIsReadingList(false);
+    setSelectedBook(null);
+  }
+
 
   return (
     <>
-    <Navbar onReadingListClick={viewReadingList} />
+    <Navbar onViewList={viewReadingList} />
    <Box 
    component="section" 
    sx={{ 
@@ -68,12 +79,19 @@ const App = () => {
         selectedBook ? (
           <BooksGrid title={`Selected Book: ${selectedBook.title}`} books={[selectedBook]} />
         ) : (
-          readingList.length > 0 ? (
-          <BooksGrid title='Mty Reading List' books={readingList} onClick={removeFromReadingList}/>
+        isReadingList ? (
+          readingList.length >= 1 ? (
+            <BooksGrid title='My Reading List' books={readingList} onClick={removeFromReadingList}/>
           ) : (
-          <BooksGrid title="All Books" books={data.books} onClick={handleAddToReadingList} />
+            <>
+            <Typography sx={{ m: 4}}>No books in your reading List. Add some right away.</Typography>
+            <SecondaryButton text="View all Books" onClick={viewAllBooks} />
+            </>
           )
+        ) : (
+        <BooksGrid title="All Books" books={data.books} onClick={handleAddToReadingList} />
         )
+      )
       ) : (
         <Typography>No books available currently!</Typography>
       )}

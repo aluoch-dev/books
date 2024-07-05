@@ -3,7 +3,7 @@ import { AppBar, Toolbar, Box } from '@mui/material';
 import logo from './../assets/logo.svg';
 import { SecondaryButton } from './Buttons';
 
-const NavBar = ({ onReadingListClick }) => {
+const NavBar = ({ onViewList }) => {
   return (
     <AppBar position="static" sx={{ backgroundColor: 'transparent', boxShadow: 'none'}}>
       <Toolbar>
@@ -14,7 +14,7 @@ const NavBar = ({ onReadingListClick }) => {
             style={{ height: '40px', marginRight: '10px' }}
           />
         </Box>
-        <SecondaryButton text="View Reading List" onClick={onReadingListClick} />
+        <SecondaryButton text="View Reading List" onClick={onViewList} />
       </Toolbar>
     </AppBar>
   );
